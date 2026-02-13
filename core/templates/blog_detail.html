@@ -94,7 +94,7 @@ body {
 
     <!-- Featured Image -->
     {% if blog.image %}
-    <img src="{{ blog.image.url }}"
+    <img src="{{ blog.image }}" alt="{{ blog.title }}"
          class="w-full rounded-xl mb-10 shadow-md">
     {% endif %}
 

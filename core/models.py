@@ -13,7 +13,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     content = models.TextField()
-    image = models.ImageField(upload_to='blog/', null=True, blank=True)
+    image = models.URLField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -56,7 +56,7 @@ class Portfolio(models.Model):
     client_name = models.CharField(max_length=200)
     description = models.TextField()
     results = models.TextField()
-    image = models.ImageField(upload_to='portfolio/', null=True, blank=True)
+    image = models.URLField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
