@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from .models import Service, Lead, Portfolio,Blog
-from django.core.mail import send_mail
-from django.conf import settings
 
 def home(request):
     services = Service.objects.all()
@@ -41,36 +39,13 @@ def contact(request):
         message = request.POST.get('message')
         phone = request.POST.get('phone')
 
-
-        # Save lead
+        # Save lead to database
         Lead.objects.create(
             name=name,
             email=email,
             phone=phone,
             service=service,
             message=message
-        )
-
-        # Send email notification
-        subject = f"New Lead: {name}"
-        body = f"""
-New lead received:
-
-Name: {name}
-Email: {email}
-Phone: {phone}
-Service: {service}
-
-Message:
-{message}
-        """
-
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [settings.DEFAULT_FROM_EMAIL],  # your inbox
-            fail_silently=False,
         )
 
         success = True
