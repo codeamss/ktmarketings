@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - KT Marketing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 font-[Poppins]">
+
+<!-- NAVBAR -->
+    <header class="fixed top-0 w-full bg-white/70 backdrop-blur-md shadow-sm z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-600">KT Marketing</h1>
+
+    
+    <nav class="hidden md:flex items-center space-x-8 font-medium">
+      <a href="/" class="hover:text-blue-600 transition">Home</a>
+      <a href="/services/" class="hover:text-blue-600 transition">Services</a>
+      <a href="/portfolio/" class="hover:text-blue-600 transition">Portfolio</a>
+      <a href="/pricing/" class="hover:text-blue-600 transition">Pricing</a>
+      <a href="/blog/" class="hover:text-blue-600 transition">Blog</a>
+      <a href="/contact/"
+         class="px-5 py-2 rounded-full bg-blue-600 text-white hover:scale-105 transition">
+         Contact
+      </a>
+    </nav>
+
+    <button id="menu-btn" class="md:hidden text-2xl">☰</button>
+    
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-4 bg-white">
+    <a href="/" class="block">Home</a>
+    <a href="/services/" class="block">Services</a>
+    <a href="/portfolio/" class="block">Portfolio</a>
+    <a href="/pricing/" class="block">Pricing</a>
+    <a href="/blog/" class="block">Blog</a>
+    <a href="/contact/" class="block">Contact</a>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+  });
+</script>
+
+
+
+<section class="pt-32 pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-16">Our Case Studies</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      {% if projects %}
+    {% for project in projects %}
+        <a href="/portfolio/{{ project.slug }}/"
+         class="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+
+        <img src="{{ project.image.url }}"
+             class="w-full h-60 object-cover group-hover:scale-105 transition duration-300">
+
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-2">{{ project.title }}</h3>
+          <p class="text-gray-600 text-sm">{{ project.client_name }}</p>
+        </div>
+
+      </a>
+    {% endfor %}
+{% else %}
+    <p>No projects available yet.</p>
+{% endif %}
+    </div>
+  </div>
+</section>
+
+ <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+    
+    <div>
+      <h3 class="text-xl font-bold mb-4">KT Marketing</h3>
+      <p class="text-gray-400">
+        Helping brands grow digitally with strategy & performance marketing.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-gray-400">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-4">Contact</h4>
+      <p class="text-gray-400">contact@ktmarketing.com</p>
+    </div>
+  </div>
+
+  <div class="text-center mt-10 text-gray-500">
+    © 2026 KT Marketing. All rights reserved.
+  </div>
+</footer>
+
+</body>
+</html>

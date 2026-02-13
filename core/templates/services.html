@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - KT Marketing</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+ <!-- NAVBAR -->
+    <header class="fixed top-0 w-full bg-white/70 backdrop-blur-md shadow-sm z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-600">KT Marketing</h1>
+
+    
+    <nav class="hidden md:flex items-center space-x-8 font-medium">
+      <a href="/" class="hover:text-blue-600 transition">Home</a>
+      <a href="/services/" class="hover:text-blue-600 transition">Services</a>
+      <a href="/portfolio/" class="hover:text-blue-600 transition">Portfolio</a>
+      <a href="/pricing/" class="hover:text-blue-600 transition">Pricing</a>
+      <a href="/blog/" class="hover:text-blue-600 transition">Blog</a>
+      <a href="/contact/"
+         class="px-5 py-2 rounded-full bg-blue-600 text-white hover:scale-105 transition">
+         Contact
+      </a>
+    </nav>
+
+    <button id="menu-btn" class="md:hidden text-2xl">☰</button>
+    
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-4 bg-white">
+    <a href="/" class="block">Home</a>
+    <a href="/services/" class="block">Services</a>
+    <a href="/portfolio/" class="block">Portfolio</a>
+    <a href="/pricing/" class="block">Pricing</a>
+    <a href="/blog/" class="block">Blog</a>
+    <a href="/contact/" class="block">Contact</a>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+  });
+</script>
+
+
+<section class="pt-32 pb-20">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-16">Our Services</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      {% for service in services %}
+      <div class="group bg-white p-8 rounded-2xl shadow-lg transition duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(37,99,235,0.25)]
+" data-aos="zoom-in">
+        <h3 class="text-xl font-semibold mb-4">{{ service.name }}</h3>
+        <p class="text-gray-600 mb-6">{{ service.description }}</p>
+        <a href="/contact/" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-full hover:scale-105 transition">
+          Get Quote
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<footer class="bg-gray-900 text-white py-12">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+    
+    <div>
+      <h3 class="text-xl font-bold mb-4">KT Marketing</h3>
+      <p class="text-gray-400">
+        Helping brands grow digitally with strategy & performance marketing.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-gray-400">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-4">Contact</h4>
+      <p class="text-gray-400">contact@ktmarketing.com</p>
+    </div>
+  </div>
+
+  <div class="text-center mt-10 text-gray-500">
+    © 2026 KT Marketing. All rights reserved.
+  </div>
+</footer>
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({ duration: 1000 });</script>
+
+</body>
+</html>

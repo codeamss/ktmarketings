@@ -1,0 +1,401 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KT Marketing</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        #loader {
+  transition: opacity 0.8s ease;
+}
+
+/* Subtle zoom-in */
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-zoomIn {
+  animation: zoomIn 1.2s ease forwards;
+}
+
+/* Subtle floating gradient */
+@keyframes floatBg {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-30px); }
+  100% { transform: translateY(0px); }
+}
+
+.bg-gradient-to-r {
+  animation: floatBg 6s ease-in-out infinite;
+}
+    </style>
+    
+  </head>
+  <body>
+  <div id="loader"
+     class="fixed inset-0 bg-gray-900 flex items-center justify-center overflow-hidden z-[9999]">
+
+  <!-- Gradient Glow Background -->
+  <div class="absolute w-[600px] h-[600px] bg-gradient-to-r 
+              from-blue-600 via-indigo-500 to-purple-600 
+              rounded-full blur-3xl opacity-30 animate-pulse">
+  </div>
+
+  <!-- Particle Canvas -->
+  <canvas id="particles" class="absolute inset-0"></canvas>
+
+  <!-- Loader Text -->
+  <h1 id="loader-text"
+      class="relative text-white text-3xl md:text-6xl font-bold tracking-widest 
+             overflow-hidden whitespace-nowrap border-r-4 border-white pr-2 
+             animate-zoomIn">
+  </h1>
+
+</div>
+
+
+
+    <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-blue-600 z-[9999]" style="width:0%"></div>
+<div id="page-transition"
+     class="fixed inset-0 bg-white z-[9999] pointer-events-none transition-opacity duration-500 opacity-0">
+</div>
+
+    <!-- NAVBAR -->
+    <header class="fixed top-0 w-full bg-white/70 backdrop-blur-md shadow-sm z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-600">KT Marketing</h1>
+
+    
+    <nav class="hidden md:flex items-center space-x-8 font-medium">
+      <a href="/" class="hover:text-blue-600 transition">Home</a>
+      <a href="/services/" class="hover:text-blue-600 transition">Services</a>
+      <a href="/portfolio/" class="hover:text-blue-600 transition">Portfolio</a>
+      <a href="/pricing/" class="hover:text-blue-600 transition">Pricing</a>
+      <a href="/blog/" class="hover:text-blue-600 transition">Blog</a>
+      <a href="/contact/"
+         class="px-5 py-2 rounded-full bg-blue-600 text-white hover:scale-105 transition">
+         Contact
+      </a>
+    </nav>
+
+    <button id="menu-btn" class="md:hidden text-2xl">☰</button>
+    
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-4 bg-white">
+    <a href="/" class="block">Home</a>
+    <a href="/services/" class="block">Services</a>
+    <a href="/portfolio/" class="block">Portfolio</a>
+    <a href="/pricing/" class="block">Pricing</a>
+    <a href="/blog/" class="block">Blog</a>
+    <a href="/contact/" class="block">Contact</a>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+  });
+</script>
+
+
+
+
+    <!-- HERO -->
+   <section class="relative overflow-hidden pt-32 pb-24 bg-gradient-to-r from-blue-600 to-indigo-700 text-white text-center">
+  <div class="max-w-4xl mx-auto px-6" data-aos="fade-up">
+    
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+      Grow Your Business with Powerful Digital Marketing
+    </h2>
+    <p class="mt-6 text-lg opacity-90">
+      Websites, SEO, Paid Ads & Growth Automation — everything you need to scale.
+    </p>
+    <a href="/contact/" class="mt-8 inline-block bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:scale-105 transition">
+      Get Free Consultation
+    </a>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="py-20 bg-white">
+  
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-8 text-center">
+
+    <div data-aos="fade-up">
+      <h3 class="text-4xl font-bold text-blue-600">120+</h3>
+      <p class="text-gray-600 mt-2">Projects Completed</p>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="100">
+      <h3 class="text-4xl font-bold text-blue-600">95%</h3>
+      <p class="text-gray-600 mt-2">Client Retention</p>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="200">
+      <h3 class="text-4xl font-bold text-blue-600">50+</h3>
+      <p class="text-gray-600 mt-2">Active Clients</p>
+    </div>
+
+    <div data-aos="fade-up" data-aos-delay="300">
+      <h3 class="text-4xl font-bold text-blue-600">5+ Years</h3>
+      <p class="text-gray-600 mt-2">Experience</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="relative h-[400px] flex items-center justify-center overflow-hidden">
+  <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f')] bg-cover bg-center bg-fixed opacity-30"></div>
+
+  <div class="relative z-10 text-center">
+    <h2 class="text-4xl font-bold">Digital Growth Starts Here</h2>
+  </div>
+</section>
+
+
+<!-- Testimonials -->
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold mb-16">What Our Clients Say</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+
+      <div class="bg-gray-50 p-8 rounded-2xl shadow" data-aos="fade-up">
+        <p class="text-gray-600 mb-4">
+          "KT Marketing helped us increase leads by 300% in just 4 months."
+        </p>
+        <h4 class="font-semibold">Rahul Sharma</h4>
+      </div>
+
+      <div class="bg-gray-50 p-8 rounded-2xl shadow" data-aos="fade-up" data-aos-delay="100">
+        <p class="text-gray-600 mb-4">
+          "Professional team with excellent communication and strategy."
+        </p>
+        <h4 class="font-semibold">Priya Verma</h4>
+      </div>
+
+      <div class="bg-gray-50 p-8 rounded-2xl shadow" data-aos="fade-up" data-aos-delay="200">
+        <p class="text-gray-600 mb-4">
+          "Our SEO rankings improved drastically within months."
+        </p>
+        <h4 class="font-semibold">Amit Patel</h4>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- FINAL CTA -->
+   <section class="relative z-10 py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center mb-16">Our Services</h2>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      {% for service in services %}
+      <div class=" bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition" data-aos="zoom-in">
+        <h3 class="text-xl font-semibold mb-4">{{ service.name }}</h3>
+        <p class="text-gray-600 mb-6">{{ service.description }}</p>
+        <a href="/pricing/" class="text-blue-600 font-medium">View Pricing →</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Glassmorphism -->
+ <section class="py-20 bg-gradient-to-r from-blue-600 to-indigo-700">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="bg-white/20 backdrop-blur-md p-12 rounded-3xl text-white text-center shadow-lg">
+      <h2 class="text-3xl font-bold mb-4">Ready to Scale Your Business?</h2>
+      <p class="mb-6">Let’s build high-performing digital systems for you.</p>
+      <a href="/contact/" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:scale-105 transition">
+        Book Free Strategy Call
+      </a>
+    </div>
+  </div>
+</section>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+    
+    <div>
+      <h3 class="text-xl font-bold mb-4">KT Marketing</h3>
+      <p class="text-gray-400">
+        Helping brands grow digitally with strategy & performance marketing.
+      </p>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-gray-400">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/pricing/">Pricing</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-4">Contact</h4>
+      <p class="text-gray-400">contact@ktmarketing.com</p>
+    </div>
+  </div>
+
+  <div class="text-center mt-10 text-gray-500">
+    © 2026 KT Marketing. All rights reserved.
+  </div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000 });
+</script>
+<script>
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    document.getElementById('progress-bar').style.width = progress + "%";
+});
+</script>
+
+<div id="page-transition"
+     class="fixed inset-0 bg-white z-[9999] pointer-events-none transition-opacity duration-500 opacity-0">
+</div>
+<script>
+const transition = document.getElementById("page-transition");
+
+document.querySelectorAll("a[href^='/']").forEach(link => {
+  link.addEventListener("click", function(e) {
+    if (this.target !== "_blank") {
+      e.preventDefault();
+      transition.classList.remove("opacity-0");
+      transition.classList.add("opacity-100");
+
+      setTimeout(() => {
+        window.location = this.href;
+      }, 300);
+    }
+  });
+});
+
+window.addEventListener("load", () => {
+  transition.classList.remove("opacity-100");
+  transition.classList.add("opacity-0");
+});
+</script>
+
+<script>
+const loader = document.getElementById("loader");
+
+// If already shown in this session → skip
+if (sessionStorage.getItem("loaderShown")) {
+    loader.style.display = "none";
+} else {
+
+    const text = "KT MARKETING";
+    const loaderText = document.getElementById("loader-text");
+    let index = 0;
+
+    loaderText.textContent = "";  // 🔥 IMPORTANT: reset text
+
+    const audio = new Audio("https://www.soundjay.com/mechanical/typewriter-key-1.mp3");
+    audio.volume = 0.08;
+
+    function typeEffect() {
+        if (index < text.length) {
+            loaderText.textContent += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, 120);
+        } else {
+            setTimeout(() => {
+                loader.style.opacity = "0";
+                setTimeout(() => {
+                    loader.style.display = "none";
+                }, 800);
+            }, 600);
+        }
+    }
+
+    window.addEventListener("load", function runOnce() {
+        window.removeEventListener("load", runOnce); // 🔥 prevents duplicate run
+        typeEffect();
+        sessionStorage.setItem("loaderShown", "true");
+    });
+}
+</script>
+
+
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray = [];
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * canvas.height;
+    this.size = Math.random() * 2 + 1;
+    this.speedY = Math.random() * 0.5 + 0.2;
+  }
+
+  update() {
+    this.y -= this.speedY;
+    if (this.y < 0) {
+      this.y = canvas.height;
+      this.x = Math.random() * canvas.width;
+    }
+  }
+
+  draw() {
+    ctx.fillStyle = "rgba(255,255,255,0.5)";
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+function initParticles() {
+  for (let i = 0; i < 60; i++) {
+    particlesArray.push(new Particle());
+  }
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particlesArray.forEach(p => {
+    p.update();
+    p.draw();
+  });
+  requestAnimationFrame(animateParticles);
+}
+
+initParticles();
+animateParticles();
+</script>
+
+  </body>
+</html>

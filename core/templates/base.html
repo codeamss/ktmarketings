@@ -1,0 +1,13 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}KT Marketing{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    {% include 'partials/navbar.html' %} {% block content %} {% endblock %} {%
+    include 'partials/footer.html' %}
+  </body>
+</html>

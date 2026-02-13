@@ -1,0 +1,507 @@
+/* =====================
+   GLOBAL STYLES
+===================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #1e293b;
+}
+
+/* =====================
+   HOME PAGE
+===================== */
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 44px;
+  max-width: 900px;
+  margin: 0 auto 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto 35px;
+  opacity: 0.95;
+}
+
+.hero .hero-btn {
+  display: inline-block;
+  padding: 14px 34px;
+  background: white;
+  color: #1e40af;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* SECTION COMMON */
+.section {
+  padding: 80px 20px;
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 50px;
+}
+
+/* SERVICES PREVIEW */
+.services-preview {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.services-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* PRICING TEASER */
+.pricing-teaser {
+  background: #f1f5f9;
+}
+
+.pricing-cards {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.pricing-mini-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.pricing-mini-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.pricing-mini-card h4 {
+  font-size: 32px;
+  color: #2563eb;
+  margin-bottom: 20px;
+}
+
+.pricing-mini-card a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 26px;
+  background: #2563eb;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* CTA */
+.final-cta {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 90px 20px;
+}
+
+.final-cta h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.final-cta a {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 36px;
+  background: #2563eb;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+
+nav {
+  background: #0f172a;
+  padding: 16px 50px;
+  display: flex;
+  align-items: center;
+}
+
+nav strong {
+  color: #ffffff;
+  font-size: 22px;
+  margin-right: 40px;
+}
+
+nav a {
+  color: #cbd5e1;
+  margin-right: 22px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+nav a:hover {
+  color: #ffffff;
+}
+
+/* =====================
+   PRICING CONTAINER
+===================== */
+
+.pricing-container {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.pricing-container h1 {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 60px;
+}
+
+/* =====================
+   SERVICE TITLE
+===================== */
+
+.service-title {
+  font-size: 26px;
+  margin: 70px 0 30px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* =====================
+   PRICING PLANS GRID
+===================== */
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* =====================
+   PRICING CARD
+===================== */
+
+.plan-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+.plan-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.plan-card h4 {
+  font-size: 42px;
+  color: #2563eb;
+  margin: 20px 0;
+  font-weight: 700;
+}
+
+.plan-card h4 span {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 400;
+}
+
+/* =====================
+   FEATURE LIST
+===================== */
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0;
+}
+
+.plan-card ul li {
+  margin: 12px 0;
+  font-size: 15px;
+  color: #334155;
+}
+
+/* =====================
+   CTA BUTTON
+===================== */
+
+.plan-card .cta {
+  display: inline-block;
+  margin-top: 26px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.plan-card .cta:hover {
+  background: #1d4ed8;
+}
+
+/* =====================
+   MOST POPULAR PLAN
+===================== */
+
+.plan-card.popular {
+  border: 3px solid #2563eb;
+  transform: scale(1.05);
+}
+
+.plan-card .badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2563eb;
+  color: #ffffff;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =====================
+   SERVICES PAGE
+===================== */
+
+.services-container {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.services-container h1 {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 60px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 35px 30px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+}
+
+.service-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.service-card p {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.service-card .service-actions {
+  margin-top: 25px;
+}
+
+.service-card .service-actions a {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 22px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.service-card .btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.service-card .btn-outline {
+  border: 2px solid #2563eb;
+  color: #2563eb;
+}
+
+.service-card .btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.service-card .btn-outline:hover {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+
+
+/* =====================
+   FOOTER
+===================== */
+
+footer {
+  margin-top: 100px;
+  padding: 25px;
+  background: #0f172a;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* =====================
+   RESPONSIVE FIXES
+===================== */
+
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    margin-top: 10px;
+  }
+
+  .plan-card.popular {
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   CONTACT PAGE – FINAL UI
+========================= */
+
+.contact-page {
+    background: #f5f7fb;
+    padding: 100px 20px;
+}
+
+.contact-wrapper {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* LEFT TEXT */
+.contact-text h1 {
+    font-size: 44px;
+    margin-bottom: 20px;
+}
+
+.contact-text p {
+    font-size: 17px;
+    color: #475569;
+    line-height: 1.7;
+}
+
+/* FORM CARD */
+.contact-form-card {
+    background: white;
+    padding: 45px;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+}
+
+.contact-form-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-form-card input,
+.contact-form-card select,
+.contact-form-card textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    font-size: 15px;
+}
+
+.contact-form-card textarea {
+    resize: none;
+}
+
+.contact-form-card button {
+    margin-top: 10px;
+    background: #2563eb;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.contact-form-card button:hover {
+    background: #1d4ed8;
+}
+
+.success-msg {
+    color: #16a34a;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-text {
+        text-align: center;
+    }
+}
